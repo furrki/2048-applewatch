@@ -18,6 +18,16 @@ class GameViewModel: ObservableObject {
         self.game.loadTable()
     }
     
+    func onTapResetButton() {
+        self.game.reset()
+        self.game.saveTable()
+    }
+    
+    func onTapUndoButton() {
+        self.game.back()
+        self.game.saveTable()
+    }
+    
     func doMove(translation: CGSize) {
         print(translation)
         if abs(translation.width) > abs(translation.height) {
@@ -44,7 +54,7 @@ class GameViewModel: ObservableObject {
     }
     
     func getNumber(_ i: Int, _ j: Int) -> String {
-        return "\(game.table[i * 4 + j])"
+        return game.table[i * 4 + j] == 0 ? "" : "\(game.table[i * 4 + j])"
     }
     
 }

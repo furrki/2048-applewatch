@@ -13,7 +13,7 @@ struct ContentView: View {
     @ObservedObject var game: Game
     @ObservedObject var gameViewModel: GameViewModel
     
-    @State private var offset: CGSize = .zero
+    @State private var isMenuShown: Bool = false
     
     init() {
         self.game = Game()
@@ -24,6 +24,35 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            if isMenuShown {
+                VStack {
+                    Button(action: {
+                        self.gameViewModel.onTapResetButton()
+                        self.isMenuShown = false
+                        
+                    }) {
+                        Text("Reset")
+                    }
+                    
+                    Spacer().fixedSize().frame(minHeight: 15, maxHeight: 22)
+                    
+                    Button(action: {
+                        self.isMenuShown = false
+                        
+                    }) {
+                        Text("Continue")
+                    }
+                    
+                    Button(action: {
+                        self.isMenuShown = false
+                        self.gameViewModel.onTapUndoButton()
+                        
+                    }) {
+                        Text("Undo")
+                    }
+                    
+                }
+            } else {
                 VStack(alignment: .center, spacing: 0) {
                     ForEach(0..<4) { i in
                         HStack(alignment: .center, spacing: 0) {
@@ -40,6 +69,10 @@ struct ContentView: View {
                 .gesture(DragGesture().onEnded({ (val) in
                     self.gameViewModel.doMove(translation: val.translation)
                 }))
+                .gesture(LongPressGesture().onEnded({ (val) in
+                    self.isMenuShown.toggle()
+                }))
+            }
         }
     }
 }

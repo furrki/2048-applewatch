@@ -33,6 +33,17 @@ class Game: ObservableObject {
         prevTable = table
     }
     
+    func reset() {
+        score = 0
+        prevScore = 0
+        table = (1...16).map({ (i) -> Int in
+             return 0
+         })
+         
+         generateRandom()
+         prevTable = table
+    }
+    
     func generateRandom() {
         let availableIndexes = table.indexes(of: 0)
         if availableIndexes.count > 0 {
