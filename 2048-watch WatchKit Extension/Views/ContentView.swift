@@ -13,16 +13,33 @@ struct ContentView: View {
     @ObservedObject var game: Game
     @ObservedObject var gameViewModel: GameViewModel
     
+    @State private var offset: CGSize = .zero
+    
     init() {
         self.game = Game()
         self.gameViewModel = GameViewModel(game: Game())
+        
         self.gameViewModel.game = self.game
     }
     
     var body: some View {
         VStack {
-            GameTableView()
-          
+                VStack(alignment: .center, spacing: 0) {
+                    ForEach(0..<4) { i in
+                        HStack(alignment: .center, spacing: 0) {
+                            ForEach(0..<4) { j in
+                                NumberCellView(number: self.gameViewModel.getNumber(i, j),
+                                               textColor: self.gameViewModel.getForegroundColor(i, j),
+                                               backgroundColor: self.gameViewModel.getBackgroundColor(i, j))
+                            }.padding(2)
+                        }
+                    }
+                }
+                .background(Color.black)
+                .cornerRadius(4.0)
+                .gesture(DragGesture().onEnded({ (val) in
+                    self.gameViewModel.doMove(translation: val.translation)
+                }))
         }
     }
 }
@@ -53,4 +70,3 @@ struct NumberCellView: View {
             .cornerRadius(4.0)
     }
 }
-

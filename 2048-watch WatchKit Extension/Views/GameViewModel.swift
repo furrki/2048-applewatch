@@ -18,6 +18,23 @@ class GameViewModel: ObservableObject {
         self.game.loadTable()
     }
     
+    func doMove(translation: CGSize) {
+        print(translation)
+        if abs(translation.width) > abs(translation.height) {
+            if translation.width > 0 {
+                game.doMove(move: .Right)
+            } else {
+                game.doMove(move: .Left)
+            }
+        } else {
+            if translation.height > 0 {
+                game.doMove(move: .Down)
+            } else {
+                game.doMove(move: .Up)
+            }
+        }
+    }
+    
     func getForegroundColor(_ i: Int, _ j: Int) -> Color {
         return getColor(for: game.table[i * 4 + j])[1]
     }

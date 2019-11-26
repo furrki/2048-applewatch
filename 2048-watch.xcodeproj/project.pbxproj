@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FB38F9D3238D404D0051C7AA /* GameTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB38F9D2238D404D0051C7AA /* GameTableView.swift */; };
 		FB522785238D2B2F0000AE8B /* 2048-watch WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FB522784238D2B2F0000AE8B /* 2048-watch WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FB52278B238D2B2F0000AE8B /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB522789238D2B2F0000AE8B /* Interface.storyboard */; };
 		FB52278D238D2B320000AE8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB52278C238D2B320000AE8B /* Assets.xcassets */; };
@@ -66,7 +65,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		FB38F9D2238D404D0051C7AA /* GameTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableView.swift; sourceTree = "<group>"; };
 		FB522780238D2B2F0000AE8B /* 2048-watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2048-watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB522784238D2B2F0000AE8B /* 2048-watch WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2048-watch WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB52278A238D2B2F0000AE8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -161,7 +159,6 @@
 			isa = PBXGroup;
 			children = (
 				FB522798238D2B320000AE8B /* ContentView.swift */,
-				FB38F9D2238D404D0051C7AA /* GameTableView.swift */,
 				FB5227B9238D339B0000AE8B /* GameViewModel.swift */,
 			);
 			path = Views;
@@ -298,7 +295,6 @@
 				FB5227B7238D2C110000AE8B /* ColorFactory.swift in Sources */,
 				FB5227B5238D2BD90000AE8B /* Extensions.swift in Sources */,
 				FB52279B238D2B320000AE8B /* HostingController.swift in Sources */,
-				FB38F9D3238D404D0051C7AA /* GameTableView.swift in Sources */,
 				FB522799238D2B320000AE8B /* ContentView.swift in Sources */,
 				FB52279D238D2B320000AE8B /* ExtensionDelegate.swift in Sources */,
 				FB5227B3238D2BAF0000AE8B /* Game.swift in Sources */,
